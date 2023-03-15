@@ -1,6 +1,5 @@
 import './right-aside.css';
 import { FaSearch } from "react-icons/fa";
-
 const RightAside = (props) => {
     const searchItems = (event) => {
         props.setSearchInput(event.target.value)

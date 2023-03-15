@@ -1,14 +1,16 @@
 import './left-aside.css';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../App';
 const LeftAside = (props)=>{
+    const {setSelectedSize} = useContext(UserContext);
     const sizeItems = (event) => {
         const arr1=props.arr.filter(item => item.size === event.target.value);
-        props.setSelectedSize(arr1)
+        setSelectedSize(arr1)
       }
-      const barndItems = (brand,event) => {
-        {console.log(event.target)}
+      const barndItems = (brand) => {
         const arr1=props.arr.filter(item => item.brand === brand);
-        props.setSelectedSize(arr1)
+        setSelectedSize(arr1)
       }
       
     
@@ -18,11 +20,11 @@ const LeftAside = (props)=>{
                 <h3>Brands of ShoeMart</h3>
             </div>
             <ul className='side-bar'>
-                    <li><Link to="/size"  onClick={(event) => barndItems("Nike", event)}>Nike</Link></li>
-                    <li><Link to="/size"  onClick={(event) => barndItems("Adidas", event)}>Adidas</Link></li>
-                    <li><Link to="/size"  onClick={(event) => barndItems("Reebok", event)}>Reebok</Link></li>
-                    <li><Link to="/size"  onClick={(event) => barndItems("Woodland", event)}>Woodland</Link></li>
-                    <li><Link to="/size"  onClick={(event) => barndItems("Bata", event)}>Bata</Link></li>
+                    <li><Link to="/size"  onClick={() => barndItems("Nike")}>Nike</Link></li>
+                    <li><Link to="/size"  onClick={() => barndItems("Adidas")}>Adidas</Link></li>
+                    <li><Link to="/size"  onClick={() => barndItems("Reebok")}>Reebok</Link></li>
+                    <li><Link to="/size"  onClick={() => barndItems("Woodland")}>Woodland</Link></li>
+                    <li><Link to="/size"  onClick={() => barndItems("Bata")}>Bata</Link></li>
             </ul>
             <h3>Size</h3>
             <ul className='side-bar-button'>

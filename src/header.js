@@ -1,18 +1,28 @@
 import './header.css';
 import { FaCartPlus } from "react-icons/fa";
 import { Link } from 'react-router-dom';
-import Menulist from './menu';
+import { useContext } from 'react';
+import { UserContext } from './App';
 const Header = (props) => {
+    const { setSelectedSize } = useContext(UserContext);
+    const descItems = (desc) => {
+        const arr1 = props.arr.filter(item => item.desc === desc);
+        setSelectedSize(arr1)
+    }
     return (
         <>
-            <span className='count'>{props.count}</span>
+            <span className='count'>{props.newCartItems.length}</span>
             <div className='header'>
                 <div className='title'>
                     <h1>ShoeMart</h1>
                 </div>
-                <div className='menu'>
-                    <Menulist></Menulist>
-                </div>
+                <ul className='nav-bar'>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/size" onClick={() => descItems("SPORTS")}>Sports</Link></li>
+                    <li><Link to="/size" onClick={() => descItems("MODERN")}>Modern</Link></li>
+                    <li><Link to="/size" onClick={() => descItems("FORMAL")}>Formal</Link></li>
+                    <li><Link to="/size" onClick={() => descItems("CASUAL")}>Casual</Link></li>
+                </ul>
                 <div className='cart-icon'>
                     <Link to="/addcart"><FaCartPlus className='cart' ></FaCartPlus></Link>
                 </div>

@@ -1,8 +1,11 @@
-import './add-cart.css'
+import './add-cart.css';
+import { useContext } from 'react';
+import { UserContext } from './App';
 const Sizerender = (props) => {
+    const {selectedSize} = useContext(UserContext);
     return (
         <div className='image-container'>
-            {props.selectedSize.map(shoe =>
+            {selectedSize.map(shoe =>
                 <div key={shoe.id} className='image'>
                     <img src={shoe.image} alt={shoe.alt} />
                     <h5>{shoe.rate}</h5>

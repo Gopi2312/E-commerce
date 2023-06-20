@@ -18,7 +18,7 @@ const Header = (props) => {
             <span className='count'>{props.newCartItems.length}</span>
             <div className='header'>
                 <div className='title'>
-                    <h1>ShoeMart</h1>
+                    <h1>Shoe</h1>
                 </div>
                 <ul className='nav-bar'>
                     <li><Link to="/" onClick={()=>changeBrand()}>Home</Link></li>

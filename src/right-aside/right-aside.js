@@ -1,16 +1,14 @@
 import './right-aside.css';
 import { FaSearch } from "react-icons/fa";
-
 const RightAside = (props) => {
     const searchItems = (event) => {
         props.setSearchInput(event.target.value)
     }
-
+    
 
     const filteredData = props.arr.filter((item) =>
         item.brand.toLowerCase().includes(props.searchInput.toLowerCase())
     );
-
 
     return (
         <div className='right-aside'>

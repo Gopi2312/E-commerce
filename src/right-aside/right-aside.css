@@ -40,7 +40,7 @@
 } */
 
 .image{
-    height: auto;
+    height: 100%;
     width: 25%;
     border: 2px solid #deb887;
     border-radius: 10px;

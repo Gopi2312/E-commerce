@@ -1,7 +1,7 @@
 import './App.css';
 import Header from './header';
 import { useState, createContext, useMemo } from 'react';
-import { BrowserRouter as Switch, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Footer from './footer/footer';
 import RightAside from './right-aside/right-aside';
 import LeftAside from './left-aside/left-aside';
@@ -24,7 +24,8 @@ function App() {
   const [searchInput, setSearchInput] = useState('');
   const [cartItems, setCartItems] = useState('');
   const [selectedSize, setSelectedSize] = useState([]);
-
+  const [brandSize, setBrandSize] = useState(arr);
+  
   const newCartItems = [...cartItems];
 
   const btn = (item) => {
@@ -43,26 +44,26 @@ function App() {
   };
 
   const value =useMemo(()=>({
-    selectedSize,setSelectedSize,cartItems, setCartItems
-  }),[selectedSize,cartItems])
+    selectedSize,setSelectedSize,cartItems, setCartItems,brandSize,setBrandSize
+  }),[selectedSize,cartItems,brandSize])
 
   return (
     <UserContext.Provider value={value}>
       <div className="App">
-        <Switch>
+        <BrowserRouter>
           <Header className="header" arr={arr} newCartItems={newCartItems}></Header>
           <div className='body'>
             <LeftAside className="left-aside" arr={arr}></LeftAside>
             <Routes>
-              <Route exact path='/size' element={<Sizerender btn={btn} addItem={addItem} ></Sizerender>} />
-              <Route exact path='/addcart' element={<Addcart newCartItems={newCartItems}></Addcart>}></Route>
+              <Route  path='/size' element={<Sizerender btn={btn} addItem={addItem} ></Sizerender>} />
+              <Route  path='/addcart' element={<Addcart newCartItems={newCartItems}></Addcart>}></Route>
               <Route exact path='/' element={
                 <RightAside className="right-aside" arr={arr} btn={btn} addItem={addItem} searchInput={searchInput} setSearchInput={setSearchInput} ></RightAside>
               }></Route>
             </Routes>
           </div>
           <Footer className="footer"></Footer>
-        </Switch>
+        </BrowserRouter>
       </div>
     </UserContext.Provider >
   );

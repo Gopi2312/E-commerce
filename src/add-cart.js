@@ -1,6 +1,7 @@
 import './add-cart.css';
-import { useContext } from 'react';
+import { useContext , createContext} from 'react';
 import { UserContext } from './App';
+export const con = createContext("hii");
 const Addcart = (props) => {
     const {setCartItems} = useContext(UserContext);
     const remove = (item)=>{
@@ -10,7 +11,10 @@ const Addcart = (props) => {
         }
         setCartItems(props.newCartItems);
     }
+    
+
     return (
+        <div className='right-aside'>
         <div className='image-container'>
             {props.newCartItems.map(shoe =>
                 <div key={shoe.id} className='image'>
@@ -20,6 +24,7 @@ const Addcart = (props) => {
                     <button className='cart-button' onClick={() => remove(shoe)}>Remove</button>
                 </div>
             )}
+        </div>
         </div>
     )
 }

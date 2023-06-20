@@ -4,6 +4,7 @@ import { UserContext } from './App';
 const Sizerender = (props) => {
     const {selectedSize} = useContext(UserContext);
     return (
+        <div className='right-aside'>
         <div className='image-container'>
             {selectedSize.map(shoe =>
                 <div key={shoe.id} className='image'>
@@ -13,6 +14,7 @@ const Sizerender = (props) => {
                     <button className='cart-button' onClick={() => props.addItem(shoe)}>{props.btn(shoe) ? "Remove from Cart" : "Add to Cart"}</button>
                 </div>
             )}
+        </div>
         </div>
     )
 }

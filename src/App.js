@@ -30,6 +30,7 @@ function App() {
 
   const btn = (item) => {
     const index = newCartItems.findIndex((cartItem) => cartItem.id === item.id);
+    // const index = newCartItems.indexOf(item);
     return index >= 0;
   }
 

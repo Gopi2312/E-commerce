@@ -1,4 +1,5 @@
 import '../style/header.css';
+import { memo } from 'react';
 import { FaCartPlus } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 const Header = (props) => {
@@ -28,4 +29,4 @@ const Header = (props) => {
     )
 }
 
-export default Header;
+export default memo(Header);

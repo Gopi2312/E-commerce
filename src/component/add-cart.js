@@ -1,9 +1,10 @@
-import './add-cart.css';
+import '../style/add-cart.css';
 import { useContext , createContext} from 'react';
-import { UserContext } from './App';
+import { UserContext } from '../App';
 export const con = createContext("hii");
 const Addcart = (props) => {
-    const {setCartItems} = useContext(UserContext);
+    
+    const {setCartItems,cartItems} = useContext(UserContext);
     const remove = (item)=>{
         const index = props.newCartItems.findIndex((cartItem) => cartItem.id === item.id);
         if (index >= 0) {
@@ -12,9 +13,16 @@ const Addcart = (props) => {
         setCartItems(props.newCartItems);
     }
     
-
-    return (
+    if(cartItems.length === 0){
+        return(
         <div className='right-aside'>
+            <h2 className='empty'>Cart Is Empty</h2>
+        </div>
+        )
+    }
+    else{
+    return (
+        <div className='right-aside'>   
         <div className='image-container'>
             {props.newCartItems.map(shoe =>
                 <div key={shoe.id} className='image'>
@@ -27,6 +35,7 @@ const Addcart = (props) => {
         </div>
         </div>
     )
+    }
 }
 
 export default Addcart;

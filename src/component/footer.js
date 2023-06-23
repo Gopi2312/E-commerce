@@ -1,4 +1,5 @@
-import './footer.css';
+import '../style/footer.css';
+import { memo } from 'react';
 import { FaWhatsapp , FaInstagram , FaFacebook } from "react-icons/fa";
 const Footer = ()=>{
     return(
@@ -10,10 +11,10 @@ const Footer = ()=>{
                 </div>
                 <div className="footer-contact">
                     <h3>Contact Us</h3>
-                    <p>123 Main St.</p>
-                    <p>Anytown, USA</p>
-                    <p>Phone: 555-1234</p>
-                    <p>Email: info@myshoeshop.com</p>
+                    <p>4/100 Main St.</p>
+                    <p>SOMNATH, PMK</p>
+                    <p>Phone: 9788934412</p>
+                    <p>Email: gopi@tringapps.com</p>
                 </div>
                 <div className="footer-social">
                     <h3>Follow Us</h3>
@@ -28,4 +29,4 @@ const Footer = ()=>{
     )
 }
 
-export default Footer;
+export default memo(Footer);

@@ -1,15 +1,16 @@
-import './right-aside.css';
+import '../style/right-aside.css';
+import { data } from './data';
 import { FaSearch } from "react-icons/fa";
 const RightAside = (props) => {
+    console.log("hello")
+    const{searchInput,setSearchInput,btn,addItem} = props
     const searchItems = (event) => {
-        props.setSearchInput(event.target.value)
+        setSearchInput(event.target.value)
     }
     
-
-    const filteredData = props.arr.filter((item) =>
-        item.brand.toLowerCase().includes(props.searchInput.toLowerCase())
+    const filteredData = data.filter((item) =>
+        item.brand.toLowerCase().includes(searchInput.toLowerCase())
     );
-
     return (
         <div className='right-aside'>
             <div className='search'>
@@ -27,7 +28,7 @@ const RightAside = (props) => {
                         <img src={shoe.image} alt={shoe.alt} />
                         <h5>{shoe.rate}</h5>
                         <h4>{shoe.brand}</h4>
-                        <button className='cart-button' onClick={() => props.addItem(shoe)}>{props.btn(shoe)?"Remove from Cart":"Add to Cart"}</button>
+                        <button className='cart-button' id={shoe.id}   onClick={() => addItem(shoe)}>{btn(shoe)}</button>
                     </div>
                 )}
             </div>

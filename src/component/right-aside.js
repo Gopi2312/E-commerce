@@ -1,9 +1,12 @@
+import { useState } from 'react';
 import '../style/right-aside.css';
 import { data } from './data';
 import { FaSearch } from "react-icons/fa";
+import Imagecontainer from './image-container';
 const RightAside = (props) => {
-    console.log("hello")
-    const{searchInput,setSearchInput,btn,addItem} = props
+    const [searchInput, setSearchInput] = useState('');    
+    const{btn,addItem} = props;
+
     const searchItems = (event) => {
         setSearchInput(event.target.value)
     }
@@ -15,23 +18,14 @@ const RightAside = (props) => {
         <div className='right-aside'>
             <div className='search'>
                 <form>
-                    <input type="text" className='input-box' placeholder='Search' value={props.searchInput} onChange={searchItems}></input>
+                    <input type="text" className='input-box' placeholder='Search'  onChange={searchItems}></input>
                 </form>
                 <div className='fa-search'>
                     <FaSearch></FaSearch>
                 </div>
 
             </div>
-            <div className='image-container'>
-                {filteredData.map(shoe =>
-                    <div key={shoe.id} className='image'>
-                        <img src={shoe.image} alt={shoe.alt} />
-                        <h5>{shoe.rate}</h5>
-                        <h4>{shoe.brand}</h4>
-                        <button className='cart-button' id={shoe.id}   onClick={() => addItem(shoe)}>{btn(shoe)}</button>
-                    </div>
-                )}
-            </div>
+            <Imagecontainer filterDate={filteredData} btn={btn} addItem={addItem} />
         </div>
     )
 }

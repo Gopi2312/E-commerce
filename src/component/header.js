@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Header = (props) => {
     const{brandItems,setSelectedSize,newCartItems} = props
     const changeBrand = ()=>{
-        setSelectedSize([]) 
+        setSelectedSize([])
     }
     return (
         <>
@@ -15,7 +15,7 @@ const Header = (props) => {
                     <h1>ShoeMart</h1>
                 </div>
                 <ul className='nav-bar'>
-                    <li><Link to="/" onClick={()=>changeBrand()}>Home</Link></li>
+                    <li><Link to="/" onClick={changeBrand}>Home</Link></li>
                     <li><Link to="/size" id='SPORTS' onClick={() => brandItems("SPORTS")}>Sports</Link></li>
                     <li><Link to="/size" id='MODERN' onClick={() => brandItems("MODERN")}>Modern</Link></li>
                     <li><Link to="/size" id='FORMAL' onClick={() => brandItems("FORMAL")}>Formal</Link></li>

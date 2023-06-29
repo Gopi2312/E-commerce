@@ -1,7 +1,7 @@
 import '../style/left-aside.css';
 import { useContext, useEffect} from 'react';
 import { Link } from 'react-router-dom';
-import { UserContext } from '../App';
+import { UserContext } from './provider';
 import { data } from './data';
 const LeftAside = (props)=>{
     const {barndItems} = props

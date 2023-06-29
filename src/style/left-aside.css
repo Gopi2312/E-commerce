@@ -1,3 +1,4 @@
+<<<<<<< HEAD:src/style/left-aside.css
 .left-aside{
     width: 25%;
     padding: 10px;
@@ -44,4 +45,52 @@
 
 .side-bar-button button:hover {
     box-shadow: 0 0 10px black;
+=======
+.left-aside{
+    width: 25%;
+    padding: 10px;
+    background-color: #bfbcde;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+    border: 10px solid black;
+}
+
+.side-bar{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    list-style: none;
+    margin-right: 40px;
+}
+.side-bar a{
+    text-decoration: none;
+    font-size: medium;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: black;
+    text-align: justify;
+}
+
+
+.side-bar-button{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    
+}
+
+.side-bar-button button{
+    height: auto;
+    width: 30px;
+    text-decoration: none;
+    border-radius: 60px;
+    list-style: none;
+    color: black;
+    cursor: pointer;
+}
+
+.side-bar-button button:hover {
+    box-shadow: 0 0 10px black;
+>>>>>>> 4a7536bee7db6b8e1d53172ea2b0e8fcdd29bc1d:src/left-aside/left-aside.css
 }
